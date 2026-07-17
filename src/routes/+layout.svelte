@@ -887,7 +887,7 @@
 			let baseTheme =
 				newTheme === 'oled-dark' ? 'dark' :
 				newTheme === 'her' ? 'light' :
-				newTheme === 'agronomy' ? 'light' :
+				newTheme === 'agronomy' ? 'dark' :
 				newTheme;
 
 			if (newTheme === 'system') {
@@ -911,13 +911,20 @@
 				root.style.setProperty('--color-gray-950', '#000000');
 			}
 
+			if (newTheme === 'agronomy') {
+				root.style.setProperty('--color-gray-800', '#c8102e');
+				root.style.setProperty('--color-gray-850', '#9A3324');
+				root.style.setProperty('--color-gray-900', '#7c2529');
+				root.style.setProperty('--color-gray-950', '#7c2529');
+			}
+
 			const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 			if (metaThemeColor) {
 				metaThemeColor.setAttribute(
 					'content',
 					newTheme === 'oled-dark' ? '#000000' :
 					newTheme === 'her' ? '#983724' :
-					newTheme === 'agronomy' ? '#C8102E' :
+					newTheme === 'agronomy' ? '#c8102e' :
 					baseTheme === 'dark' ? '#171717' :
 					'#ffffff'
 				);
