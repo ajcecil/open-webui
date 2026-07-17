@@ -1,0 +1,164 @@
+/* 
+  Theme scope:
+  This class is the root switch for the entire theme.
+  If you copy this file, rename .agronomy to your own class, e.g. .my-theme.
+*/
+.agronomy * {
+  /* Global text/icon stroke color across most descendants. */
+  color: #e0def4 !important;
+  stroke: #1f1d2e !important;
+}
+
+/* Main app shell / overall page background */
+.agronomy .app > * {
+  background-color: #1f1d2e !important;
+}
+
+/* Left navigation/sidebar root */
+.agronomy #nav {
+  background-color: #191724;
+}
+
+/* Sidebar column container; likely the full-height left rail wrapper */
+.agronomy .py-2\.5.my-auto.flex.flex-col.justify-between.h-screen {
+  background: #191724;
+}
+
+/* Generic card/panel surfaces that are white in light mode / gray-800 in dark mode */
+.agronomy .bg-white.dark\:bg-gray-800 {
+  background: #26233a;
+}
+
+/* Small icons, often SVG icons */
+.agronomy .w-4.h-4 {
+  fill: #c4a7e7;
+}
+
+/* Chat input textarea/input area */
+.agronomy #chat-input {
+  background: #393552;
+  margin: 0.3rem;
+  padding: 0.5rem;
+}
+
+/* Gradient-backed lower chat composer area / bottom fade region above input */
+.agronomy .bg-gradient-to-t.from-white.dark\:from-gray-800.from-40\%.pb-2 {
+  background: #26233a !important;
+  padding-top: 0.6rem;
+}
+
+/* Disabled or inactive circular icon button */
+.agronomy
+  .text-white.bg-gray-100.dark\:text-gray-800.dark\:bg-gray-600.disabled.transition.rounded-lg.p-1.mr-0\.5.w-7.h-7.self-center {
+  background-color: #6e6a86;
+  transition: background-color 0.2s ease-out linear;
+}
+
+/* Active/high-emphasis circular icon button */
+.agronomy
+  .bg-black.text-white.hover\:bg-gray-900.dark\:bg-white.dark\:text-black.dark\:hover\:bg-gray-100.transition.rounded-lg.p-1.mr-0\.5.w-7.h-7.self-center {
+  background-color: #ec345296;
+  transition: background-color 0.2s ease-out linear;
+}
+
+/* Icon fill inside that active circular icon button */
+.agronomy
+  .bg-black.text-white.hover\:bg-gray-900.dark\:bg-white.dark\:text-black.dark\:hover\:bg-gray-100.transition.rounded-lg.p-1.mr-0\.5.w-7.h-7.self-center
+  > * {
+  fill: #9ccfd8 !important;
+  transition: fill 0.2s ease-out linear;
+}
+
+/* Selected/active row in a sidebar list, tab list, or menu item */
+.agronomy
+  .w-full.flex.justify-between.rounded-md.px-3.py-2.hover\:bg-gray-900.bg-gray-900.transition.whitespace-nowrap.text-ellipsis {
+  background-color: #56526e;
+  font-weight: bold;
+}
+
+/* General hover background override for elements using hover:bg-gray-900 */
+.agronomy .hover\:bg-gray-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 53 82 / var(--tw-bg-opacity));
+}
+
+/* Section header / tag / small uppercase chip backgrounds */
+.agronomy .text-xs.text-gray-700.uppercase.bg-gray-50.dark\:bg-gray-700.dark\:text-gray-400 {
+  background-color: #403d52;
+}
+
+/* Horizontal tab strip / model picker / scrollable top control row */
+.agronomy .scrollbar-hidden.relative.overflow-x-auto.whitespace-nowrap.svelte-3g4avz {
+  border-radius: 16px 16px 0 0;
+}
+
+/* Popup/menu/tooltip-ish base container; likely contextual floating surface */
+.agronomy .base.enter.svelte-ug60r4 {
+  background-color: #393552;
+}
+
+/* Rendered message text body */
+.agronomy .message.svelte-1nauejd {
+  color: #e0def4 !important;
+}
+
+/* Three-dots dropdown trigger or dropdown menu surface */
+.agronomy #dropdownDots {
+  background-color: #403d52;
+}
+
+/* Hoverable action/menu row */
+.agronomy .flex.py-2\.5.px-3\.5.w-full.hover\:bg-gray-800.transition:hover {
+  background: #524f67;
+}
+
+/* Modal/dialog/popup container */
+.agronomy .m-auto.rounded-xl.max-w-full.w-\[40rem\].mx-2.bg-gray-50.dark\:bg-gray-900.shadow-3xl {
+  background-color: #26233a;
+}
+
+/* Large text area / settings input / prompt editor surface */
+.agronomy
+  .w-full.rounded.p-4.text-sm.dark\:text-gray-300.dark\:bg-gray-800.outline-none.resize-none {
+  background-color: #524f67;
+}
+
+/* Standard single-line input field */
+.agronomy
+  .w-full.rounded.py-2.px-4.text-sm.dark\:text-gray-300.dark\:bg-gray-800.outline-none.svelte-1vx7r9s {
+  background-color: #524f67;
+}
+
+/* Neutral secondary button / segmented action button */
+.agronomy
+  .px-2\.5.py-2\.5.min-w-fit.rounded-lg.flex-1.md\:flex-none.flex.text-right.transition.bg-gray-200.dark\:bg-gray-700 {
+  background-color: #403d52;
+}
+
+/* Hover state for that secondary button */
+.agronomy
+  .px-2\.5.py-2\.5.min-w-fit.rounded-lg.flex-1.md\:flex-none.flex.text-right.transition.hover\:bg-gray-300.dark\:hover\:bg-gray-800:hover {
+  background-color: #524f67;
+}
+
+/* Primary confirm/save/apply button; originally emerald */
+.agronomy .px-4.py-2.bg-emerald-600.hover\:bg-emerald-700.text-gray-100.transition.rounded {
+  background-color: #31748f;
+}
+
+/* Chat search box and nested surface */
+.agronomy #chat-search > * {
+  background-color: #403d52 !important;
+}
+
+/* Component-scoped CSS variables; likely accent colors for a specific widget/component */
+.agronomy .svelte-1ee93ns {
+  --primary: #ec345296 !important;
+  --secondary: #e0def4 !important;
+}
+
+/* Another component-scoped CSS variable block; likely button/chart/toggle accent pair */
+.agronomy .svelte-11kvm4p {
+  --primary: #9ccfd8 !important;
+  --secondary: #1f1d2e !important;
+}

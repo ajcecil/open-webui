@@ -874,19 +874,59 @@
 			localStorage.setItem('theme', newTheme);
 			theme.set(newTheme);
 
-			// Apply theme classes (mirrors logic from chat/Settings/General.svelte)
-			const themes = ['dark', 'light', 'oled-dark'];
-			let themeToApply =
-				newTheme === 'oled-dark' ? 'dark' : newTheme === 'her' ? 'light' : newTheme;
+			const root = document.documentElement;
+			const themeClasses = ['dark', 'light', 'oled-dark', 'her', 'agronomy'];
+
+			root.classList.remove(...themeClasses);
+
+			root.style.removeProperty('--color-gray-800');
+			root.style.removeProperty('--color-gray-850');
+			root.style.removeProperty('--color-gray-900');
+			root.style.removeProperty('--color-gray-950');
+
+			let baseTheme =
+				newTheme === 'oled-dark' ? 'dark' :
+				newTheme === 'her' ? 'light' :
+				newTheme === 'agronomy' ? 'light' :
+				newTheme;
+
 			if (newTheme === 'system') {
-				themeToApply = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				baseTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 			}
-			themes
-				.filter((e) => e !== themeToApply)
-				.forEach((e) => {
-					e.split(' ').forEach((cls) => document.documentElement.classList.remove(cls));
-				});
-			themeToApply.split(' ').forEach((cls) => document.documentElement.classList.add(cls));
+
+			root.classList.add(baseTheme);
+
+			if (newTheme === 'her') {
+				root.classList.add('her');
+			}
+
+			if (newTheme === 'agronomy') {
+				root.classList.add('agronomy');
+			}
+
+			if (newTheme === 'oled-dark') {
+				root.style.setProperty('--color-gray-800', '#101010');
+				root.style.setProperty('--color-gray-850', '#050505');
+				root.style.setProperty('--color-gray-900', '#000000');
+				root.style.setProperty('--color-gray-950', '#000000');
+			}
+
+			const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+			if (metaThemeColor) {
+				metaThemeColor.setAttribute(
+					'content',
+					newTheme === 'oled-dark' ? '#000000' :
+					newTheme === 'her' ? '#983724' :
+					newTheme === 'agronomy' ? '#C8102E' :
+					baseTheme === 'dark' ? '#171717' :
+					'#ffffff'
+				);
+			}
+
+			if (typeof window !== 'undefined' && window.applyTheme) {
+				window.applyTheme();
+			}
+
 			return;
 		}
 		if (event.type === 'models:refresh') {
